@@ -3,6 +3,7 @@ import "./global.css";
 import Header from './Components/Header';
 import { v4 }  from 'uuid';
 import { ToDo } from "./Types/Todo";
+import NewTaskForm from "./Components/NewTaskForm";
 
 const todos: ToDo[] = [
   {
@@ -25,6 +26,7 @@ function App() {
     <>
       <div className={styles.wrapper}>
         <Header></Header>
+        <NewTaskForm></NewTaskForm>
       </div>
     </>
   )

@@ -1,0 +1,43 @@
+.newTaskForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 1rem;
+
+    position: absolute;
+    width: 736px;
+    height: 54px;
+    left: calc(50% - 736px/2);
+    top: 173px;
+}
+
+.newTaskInput {
+    box-sizing: border-box;
+    padding: 16px;
+    width: 638px;
+    background: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    color: var(--gray-300);
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin-right: 6px;
+}
+
+.newTaskButton {
+    box-sizing: border-box;
+    padding: 16px;
+    width: 90px;
+    height: 52px;
+    background: var(--blue-600);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    color: var(--gray-100);
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
