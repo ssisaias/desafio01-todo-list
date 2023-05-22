@@ -1,0 +1,22 @@
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 736px;
+  height: 19px;
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.created {
+  color: var(--blue-300);
+}
+
+.done {
+  color: var(--purple-600);
+}

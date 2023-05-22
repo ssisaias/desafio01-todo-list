@@ -29,9 +29,8 @@
 
 .newTaskButton {
     box-sizing: border-box;
-    padding: 16px;
     width: 90px;
-    height: 52px;
+    height: 46px;
     background: var(--blue-600);
     border: 1px solid var(--gray-700);
     border-radius: 8px;
