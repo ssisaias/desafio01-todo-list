@@ -1,7 +1,7 @@
 import { ToDo } from '../Types/Todo';
 import styles from './TaskBox.module.css';
 import TaskInfo from './TaskInfo';
-import TaskList from './TaskList';
+import TaskList from './TaskItem';
 import clipboard from '../assets/clipboard.svg';
 
 interface TaskBoxProps {
@@ -17,10 +17,12 @@ function TaskBox({todoList}: TaskBoxProps){
             doneCount={todoList.filter(todo => todo.isCompleted).length} 
            />
             {todoList.length === 0 ? (
-                <div>
+                <div className={styles.empty}>
                     <img src={clipboard} alt="clipboardImg" />
-                    <p>Você ainda não tem taredas cadastradas</p>
-                    <p>Crie tarefas e organize seus items a fazer</p>
+                    <div>
+                        <p><strong>Você ainda não tem taredas cadastradas</strong></p>
+                        <p>Crie tarefas e organize seus items a fazer</p>
+                    </div>
                 </div>
             ) : (
                <TaskList todolist={todoList}></TaskList>

@@ -7,7 +7,30 @@
 
   position: absolute;
   width: 736px;
-  height: 451px;
+  height: 244px;
   left: calc(50% - 736px / 2);
   top: 291px;
+}
+
+.empty{
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 24px;
+  gap: 16px;
+
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
