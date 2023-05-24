@@ -5,8 +5,9 @@ import { v4 }  from 'uuid';
 import { ToDo } from "./Types/Todo";
 import NewTaskForm from "./Components/NewTaskForm";
 import TaskBox from "./Components/TaskBox";
+import { useState } from "react";
 
-const todos: ToDo[] = [
+/* const todos: ToDo[] = [
   {
     createdDate: new Date(),
     description: "Let the cats out",
@@ -33,10 +34,11 @@ const todos: ToDo[] = [
     id: v4(),
     isCompleted: true,
   }
-]
+]; */
 
 function App() {
-
+  const [todos, setTodos] = useState<ToDo[]>([]);
+  
   return (
     <>
       <div className={styles.wrapper}>
