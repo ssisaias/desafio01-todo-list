@@ -1,12 +1,25 @@
 import { ToDo } from '../Types/Todo';
 import styles from './TaskBox.module.css';
 import TaskInfo from './TaskInfo';
-import TaskList from './TaskItem';
 import clipboard from '../assets/clipboard.svg';
+import TaskItem from './TaskItem';
 
 interface TaskBoxProps {
     todoList: ToDo[];
 }
+
+// move tasks marked as completed to the end of the list
+const moveCompletedTasksDownTheList = (todoList: ToDo[]) => {
+    return todoList.sort((a, b) => {
+        if (a.isCompleted && !b.isCompleted) {
+            return 1;
+        } else if (!a.isCompleted && b.isCompleted) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+};
 
 function TaskBox({todoList}: TaskBoxProps){
 
@@ -25,7 +38,9 @@ function TaskBox({todoList}: TaskBoxProps){
                     </div>
                 </div>
             ) : (
-               <TaskList todolist={todoList}></TaskList>
+               moveCompletedTasksDownTheList(todoList).map(td => (
+                   <TaskItem key={td.id} todoItem={td} />
+               ))
             )}
            
         </div>
