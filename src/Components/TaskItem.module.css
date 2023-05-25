@@ -39,28 +39,28 @@
   border-radius: 2px;
 }
 
-.taskUnCheck {
-  width: 24px;
-  height: 24px;
-  appearance: none;
-  border-color: var(--gray-500);
-  border-radius: 50%;
-  cursor: grab;
-}
-
-.taskChecked {
-  width: 24px;
-  height: 24px;
-
-  cursor: alias;
+/* Keep the button in the same position always */
+.deleteBtn {
+  position: absolute;
+  left: 96%;
+  margin: 0;
 }
 
 .descCompleted {
-  width: 92%;
+  width: 93%;
+  height: auto;
   /* Make the text strike through */
   text-decoration: line-through;
 }
 
 .descNotCompleted{
-    width: 92%;
+    width: 93%;
+    height: auto;
+}
+
+/* Makes the desc text limited to the parent div and wrap the text */
+.descText {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
