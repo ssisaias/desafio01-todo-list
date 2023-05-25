@@ -39,12 +39,24 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState<ToDo[]>([]);
   
+  function addToDo(newTodo: ToDo){
+    setTodos([...todos, newTodo]);
+  }
+
+  function deleteTodo(ToDoId: string){
+    // look for the Todo to delete
+  }
+
+  function changeTodoStatus(ToDoId: string){
+    // look for the todo to update and chage its status
+  }
+
   return (
     <>
       <div className={styles.wrapper}>
         <Header></Header>
-        <NewTaskForm></NewTaskForm>
-        <TaskBox todoList={todos}></TaskBox>
+        <NewTaskForm onAddTodo={addToDo}></NewTaskForm>
+        <TaskBox todoList={todos} ></TaskBox>
       </div>
     </>
   )
