@@ -6,6 +6,8 @@ import TaskItem from './TaskItem';
 
 interface TaskBoxProps {
     todoList: ToDo[];
+    onDeleteTodo: (id: string) => void;
+    onChangeTodoStatus: (id: string) => void;
 }
 
 // move tasks marked as completed to the end of the list
@@ -21,7 +23,7 @@ const moveCompletedTasksDownTheList = (todoList: ToDo[]) => {
     });
 };
 
-function TaskBox({todoList}: TaskBoxProps){
+function TaskBox({todoList, onDeleteTodo, onChangeTodoStatus}: TaskBoxProps){
 
    return (
         <div className={styles.taskBox}>
@@ -39,7 +41,12 @@ function TaskBox({todoList}: TaskBoxProps){
                 </div>
             ) : (
                moveCompletedTasksDownTheList(todoList).map(td => (
-                   <TaskItem key={td.id} todoItem={td} />
+                   <TaskItem 
+                    key={td.id} 
+                    todoItem={td} 
+                    onDeleteTodo={() => onDeleteTodo(td.id)}
+                    onChangeTodoStatus={() => onChangeTodoStatus(td.id)}
+                    />
                ))
             )}
            

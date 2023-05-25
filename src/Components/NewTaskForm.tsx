@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import { useState } from "react";
 
 interface NewTaskFormProps {
-    onAddTodo: Function;
+    onAddTodo: (todo: ToDo) => void;
 }
 
 function NewTaskForm({onAddTodo}: NewTaskFormProps){

@@ -1,7 +1,6 @@
 import styles from "./App.module.css";
 import "./global.css";
 import Header from './Components/Header';
-import { v4 }  from 'uuid';
 import { ToDo } from "./Types/Todo";
 import NewTaskForm from "./Components/NewTaskForm";
 import TaskBox from "./Components/TaskBox";
@@ -43,12 +42,23 @@ function App() {
     setTodos([...todos, newTodo]);
   }
 
-  function deleteTodo(ToDoId: string){
-    // look for the Todo to delete
+  function handleDeleteTodo(ToDoId: string){
+    // look for the Todo to delete and remove it from the list
+    setTodos(todos.filter((todo) => todo.id !== ToDoId));
   }
 
-  function changeTodoStatus(ToDoId: string){
+  function handleChangeTodoStatus(ToDoId: string){
     // look for the todo to update and chage its status
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === ToDoId) {
+        return {
+          ...todo,
+          isCompleted: !todo.isCompleted,
+        };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
   }
 
   return (
@@ -56,7 +66,11 @@ function App() {
       <div className={styles.wrapper}>
         <Header></Header>
         <NewTaskForm onAddTodo={addToDo}></NewTaskForm>
-        <TaskBox todoList={todos} ></TaskBox>
+        <TaskBox 
+          todoList={todos} 
+          onDeleteTodo={handleDeleteTodo} 
+          onChangeTodoStatus={handleChangeTodoStatus} 
+        />
       </div>
     </>
   )
